@@ -24,7 +24,6 @@ def get_image_data():
     image_info_url = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-UK'
     response = requests.get(image_info_url).json()
     image_info = response['images'][0]
-    print(image_info)
     image_path = image_info['url']
     image_name = image_info['copyright'].split("(")[0] # trying to exclude copyright symbol
     image_url = 'https://bing.com' + image_path
