@@ -1,0 +1,27 @@
+@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
+    .click-target-container *, .top-sites-list * {
+        color: #fff !important;
+        text-shadow: 2px 2px 2px #222 !important;
+    }
+
+    @keyframes translateY { from { y:0px; } to { y:100px; } }
+
+    body::before {
+        content: "";
+        z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        
+        background-color: black;
+        background-image: 
+            url(img/home-background.jpg),
+            url('https://source.unsplash.com/1920x1080/?wallpaper'); 
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+    }
+}

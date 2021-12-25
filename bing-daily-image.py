@@ -8,7 +8,9 @@ import requests
 
 image_info_url = 'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-UK'
 destination_file = 'home-background.jpg'
-destination_folder = '/home/bassie/.mozilla/firefox/5g8grcoi.default-release/chrome/img/'
+firefox_folder = '/home/bassie/.mozilla/firefox/'
+release_folder = firefox_folder + 'luneagrw' + '.default-release-1/'
+destination_folder = release_folder + 'chrome/img/'
 destination_path = destination_folder + destination_file 
 
 response = requests.get(image_info_url).json()
