@@ -29,5 +29,4 @@ echo "$outy"
 # else
 #     echo "▄ █ ▓ ▒ ░ _ ‗ ≡ ═"
 # fi
-
 exit 0
