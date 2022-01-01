@@ -1,4 +1,4 @@
-#!.bin/bash
+#!/bin/bash
 
 # connect to vpn
 notify-send --hint=int:transient:1 'Connecting to VPN... Check 2FA Device.' -i dcsl
