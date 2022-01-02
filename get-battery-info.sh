@@ -24,9 +24,5 @@ else
 fi
 
 echo "${outy}■"
-# if [ ! "$capacity" -eq 100 ]; then
-#     echo "[${capacity}]"
-# else
-#     echo "▄ █ ▓ ▒ ░ _ ‗ ≡ ═"
-# fi
+
 exit 0
