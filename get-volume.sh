@@ -4,9 +4,9 @@ mutedStatus=`amixer -c 0 -D pulse get Master | tail -n 1 | grep -c '\[on\]'`
 volume=`amixer -D pulse get Master | awk -F'[]%[]' '/%/ {if ($7 == "off") { print "MM" } else { print $2 }}' | head -n 1`
 
 if [ "$mutedStatus" -eq 0 ]; then
-    colour="#333333"
+    colour="#595958"
 else 
-    colour="white"
+    colour="#FFFFFF"
 fi
 
 full="┃"

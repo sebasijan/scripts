@@ -1,50 +1,61 @@
 #!/bin/bash
 
+# icons from https://www.utf8icons.com/subsets
+# gradient generator
+# 
+# cat /sys/class/power_supply/BAT0/status && cat /sys/class/power_supply/BAT0/capacity
+
 status=`cat /sys/class/power_supply/BAT0/status`
 capacity=`cat /sys/class/power_supply/BAT0/capacity`
 
 if [ "$status" == "Full" ]; then
-    echo ""
-    exit 0
+    outy=" █"
 else 
-    if [ "$capacity" -gt 80 ]; then
+    if [ "$capacity" -gt 90 ]; then
         colour="#00ff00"
         battery="█"
-    elif [ "$capacity" -gt 70 ]; then
-        colour="#7de800"
+    elif [ "$capacity" -gt 80 ]; then
+        colour="#6fed00"
         battery="▇"
-    elif [ "$capacity" -gt 60 ]; then
-        colour="#aad000"
+    elif [ "$capacity" -gt 70 ]; then
+        colour="#98db00"
         battery="▆"
-    elif [ "$capacity" -gt 50 ]; then
-        colour="#cab500"
+    elif [ "$capacity" -gt 60 ]; then
+        colour="#b6c700"
         battery="▅"
-    elif [ "$capacity" -gt 40 ]; then
-        colour="#e29700"
+    elif [ "$capacity" -gt 50 ]; then
+        colour="#cdb200"
         battery="▄"
-    elif [ "$capacity" -gt 30 ]; then
-        colour="#f27600"
+    elif [ "$capacity" -gt 40 ]; then
+        colour="#df9b00"
         battery="▃"
-    elif [ "$capacity" -gt 20 ]; then
-        colour="#fc4f00"
+    elif [ "$capacity" -gt 30 ]; then
+        colour="#ee8200"
         battery="▂"
+    elif [ "$capacity" -gt 20 ]; then
+        colour="#f86600"
+        battery="▁"
+    elif [ "$capacity" -gt 10 ]; then
+        colour="#fe4400"
+        battery="_"
     elif [ "$capacity" -gt 10 ]; then
         colour="#ff0000"
-        battery="▁"
+        battery="!!"
     fi
-    
-    echo "<fc=${colour}>${battery}</fc>"
+
+    if [ "$status" == "Charging" ]; then
+        prefix="⚡"
+    else
+        prefix=" "
+    fi
+
+    outy="<fc=${colour}>${prefix}${battery}</fc>"
 fi
 
+echo "${outy}"
+exit 0
 
-# ▁
-# ▂
-# 
-# ▄
-# 
-# ▆
-# ░
-# █ 
+# █▇▆▅▄▃▂▁_
 
 # if [ "$status" == "Full" ]; then
 #     # outy="████"
@@ -69,5 +80,3 @@ fi
 # fi
 
 # echo "${outy}■"
-
-exit 0
