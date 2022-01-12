@@ -15,45 +15,31 @@ empty="┊"
 
 case "$volume" in
     0)
-        echo "<fc=${colour}>${empty}${empty}${empty}${empty}${empty}</fc>";;
+        pattern="${empty}${empty}${empty}${empty}${empty}";;
     10)
-        echo "<fc=${colour}>${half}${empty}${empty}${empty}${empty}</fc>";;   
+        pattern="${half}${empty}${empty}${empty}${empty}";;
     20)
-        echo "<fc=${colour}>${full}${empty}${empty}${empty}${empty}</fc>";;
+        pattern="${full}${empty}${empty}${empty}${empty}";;
     30)
-        echo "<fc=${colour}>${full}${half}${empty}${empty}${empty}</fc>";;
+        pattern="${full}${half}${empty}${empty}${empty}";;
     40)
-        echo "<fc=${colour}>${full}${full}${empty}${empty}${empty}</fc>";;
+        pattern="${full}${full}${empty}${empty}${empty}";;
     50)
-        echo "<fc=${colour}>${full}${full}${half}${empty}${empty}</fc>";;   
+        pattern="${full}${full}${half}${empty}${empty}";;
     60)
-        echo "<fc=${colour}>${full}${full}${full}${empty}${empty}</fc>";;
+        pattern="${full}${full}${full}${empty}${empty}";;
     70)
-        echo "<fc=${colour}>${full}${full}${full}${half}${empty}</fc>";;
+        pattern="${full}${full}${full}${half}${empty}";;
     80)
-        echo "<fc=${colour}>${full}${full}${full}${full}${empty}</fc>";;
+        pattern="${full}${full}${full}${full}${empty}";;
     90)
-        echo "<fc=${colour}>${full}${full}${full}${full}${half}</fc>";;
+        pattern="${full}${full}${full}${full}${half}";;
     100)
-        echo "<fc=${colour}>${full}${full}${full}${full}${full}</fc>";;
+        pattern="${full}${full}${full}${full}${full}";;
+    *)
+        pattern="${full}${volume}${full}";;
 esac
 
-# ${half}${full}┊${empty}
-
-# if [ "$mutedStatus" -eq 0 ]; then
-#     symbol="░"
-# else 
-#     symbol="█"
-# fi
-
-# for ((i=10;i<="$volume";i=i+10)); do
-#     outy="${outy}${symbol}"
-# done
-
-# for ((i="$volume";i<100;i=i+10)); do
-#     outy="${outy}■"
-# done
-
-# echo "$outy"
+echo "<fc=${colour}>${pattern}</fc>"
 
 exit 0
