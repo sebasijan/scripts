@@ -3,7 +3,7 @@
 nmcli=$(nmcli)
 
 if [[ $nmcli == *"DCSL"* ]]; then
-	notify-send --hint=int:transient:1 'Disconeccting.' -i dcsl
+	# notify-send 'not connected'
 	nmcli con down 'DCSL Office VPN'
 	pkill remmina
 	exit 0
@@ -13,7 +13,10 @@ notify-send --hint=int:transient:1 'Connecting to VPN... Check 2FA Device.' -i d
 
 # connect to vpn
 if ! nmcli con up 'DCSL Office VPN'; then
+	# disconnect and close rdp
         notify-send --hint=int:transient:1 'Failed to connect.' -i dcsl
+# 	nmcli con down 'DCSL Office VPN'
+#        pkill remmina
 	exit 0
 fi
 

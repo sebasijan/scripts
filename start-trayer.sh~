@@ -6,7 +6,7 @@ trayer                 		 \
     --height 20        		 \
     --transparent true 		 \
     --alpha 255        		 \
-    --margin 59        		 \
+    --margin 55        		 \
     --SetDockType true 		 \
     --SetPartialStrut false 	 \
     & 
